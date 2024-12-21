@@ -9,7 +9,7 @@ export default function Header () {
     <header className='w-full'>
       {/* Top Bar */}
       <div className='border-b'>
-        <div className='flex justify-between items-center px-4 py-2'>
+        <div className='flex justify-end items-center px-4 py-2'>
           {/* ZIP/Postal Code Input (Centered on Mobile) */}
           <Input
             type='text'

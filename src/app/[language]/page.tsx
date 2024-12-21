@@ -1,4 +1,4 @@
-import HomePageSection from '@/components/HomePageSection'
+import HomePageSection from '@/components/PageContent'
 import { sanityFetch } from '@/sanity/lib/live'
 import { PAGE_QUERY } from '@/sanity/lib/queries'
 import { QueryParams } from 'next-sanity'
