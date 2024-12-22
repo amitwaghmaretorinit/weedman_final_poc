@@ -23,6 +23,7 @@ export const structure: StructureResolver = (S) => {
             .id("franchise_id")
             .schemaType("franchise")
             .filter('_type=="franchise"')
+            
         ),
       S.divider(),
       S.listItem()
@@ -43,6 +44,9 @@ export const structure: StructureResolver = (S) => {
                 '_type == "page_content" && $franchiseId == franchise_type._ref'
               )
               .params({ franchiseId })
+              .initialValueTemplates([
+                S.initialValueTemplateItem("page_content-template", { franchiseId }),
+              ])
           )
         ),
       S.divider(),

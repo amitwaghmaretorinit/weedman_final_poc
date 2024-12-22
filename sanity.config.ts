@@ -22,7 +22,22 @@ export default defineConfig({
   dataset,
   icon: Icon,
   theme,
-  schema,
+  schema:{...schema,
+    templates:[
+      {
+        id: 'page_content-template',
+        title: 'Page by Franchise',
+         schemaType: 'page_content',
+        parameters: [{name: 'franchiseId', type: 'string'}],
+        value: (params:{franchiseId: string}) => {
+           return  ({
+            franchise_type: {_type: 'reference', _ref: params.franchiseId}
+         })
+        }
+      } 
+    ]
+
+  },
   plugins: [
     structureTool({structure}),
   //     workflow({
