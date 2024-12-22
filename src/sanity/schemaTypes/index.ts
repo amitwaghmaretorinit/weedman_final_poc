@@ -8,7 +8,8 @@ import homePageHero from "./homePageHero";
 import page from "./page";
 import page_content from "./page_content";
 import servicesPageHero from "./servicesPageHero";
+import franchiseType from './franchiseType'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [page,page_content,homePageHero,servicesPageHero,blockContentType, categoryType, postType, authorType],
+  types: [page,page_content,homePageHero,servicesPageHero,blockContentType, categoryType, postType, authorType,franchiseType],
 }

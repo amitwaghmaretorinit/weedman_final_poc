@@ -1,8 +1,7 @@
 const languages = [
   {id: 'en', title: 'English', isDefault: true},
   {id: 'fr', title: 'French'},
-  {id: 'hi', title: 'Hindi'},
-]
+ ]
 
 const i18n = {
   languages,

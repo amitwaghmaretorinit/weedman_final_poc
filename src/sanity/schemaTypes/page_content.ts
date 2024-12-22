@@ -17,6 +17,11 @@ export default defineType({
         to: [{ type: 'page' }]
     },
     {
+        name: 'franchise_type',
+        type: 'reference',
+        to: [{ type: 'franchise' }]
+    },
+    {
         name: 'sections',
         type: 'array',
         of:
@@ -38,13 +43,14 @@ export default defineType({
         select: {
             title: 'title',
             language: 'language',
-            pageType: 'page_type.title'
+            pageType: 'page_type.title',
+            franchise: 'franchise_type.franchise_name'
         },
         prepare(select) {
-            const { language, pageType } = select
+            const { language, pageType,franchise } = select
             return {
                 title: pageType,
-                subtitle: language.toUpperCase(),
+                subtitle: `${language.toUpperCase()} - ${franchise.toUpperCase()}`,
             }
 
         }

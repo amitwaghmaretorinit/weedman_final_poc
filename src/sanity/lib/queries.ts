@@ -12,7 +12,7 @@ export const POST_QUERY =
 }`);
 
 export const PAGE_QUERY=
-defineQuery(`*[_type == "page_content" && language==$language && page_type->path.current == $path][0]{
+defineQuery(`*[_type == "page_content" && language==$language && page_type->path.current == $path && franchise_type->path.current == $franchise][0]{
   _id,
   title,
   _type,
