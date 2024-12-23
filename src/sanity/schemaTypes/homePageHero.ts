@@ -1,7 +1,8 @@
 import { defineType } from "sanity"
+import { SECTION_TYPES } from "../constants"
 
 export default defineType({
-  name: 'homePageHero',
+  name: SECTION_TYPES.HOME_PAGE_HERO,
   type: 'document',
   title: 'Home Page Hero Section',
   fields: [

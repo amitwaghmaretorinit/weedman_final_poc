@@ -15,12 +15,13 @@ export const PAGE_QUERY =
   _id,
   title,
   _type,
-  "pageType": page_type->title,
+   "pageType": page_type->title,
   language,
   "sections": sections[]->{
-  _id,
+    _id,
     _type,
     title,
+     sections,
     subtitle,
     backgroundImage{
       asset->{
