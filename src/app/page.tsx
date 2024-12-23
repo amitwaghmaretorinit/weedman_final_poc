@@ -23,7 +23,7 @@ import { PAGE_QUERY, PAGE_TITLE_QUERY } from '@/sanity/lib/queries';
 }
 
 
-export default async function Home({params}) {
+export default async function Home({params}:{params: Promise<QueryParams>}) {
   
   const { data } = await sanityFetch({
     query: PAGE_QUERY,

@@ -7,6 +7,8 @@ import VisualEditWrapper from '@/components/VisualEditWrapper';
 import { sanityFetch } from '@/sanity/lib/live';
 import { PAGE_QUERY, PAGE_TITLE_QUERY } from '@/sanity/lib/queries';
 
+export const revalidate = 10; // Revalidate this page every 10 seconds
+
 export async function generateMetadata({
   params,
 }: {
@@ -24,6 +26,8 @@ export async function generateMetadata({
 
   return {
     title: data?.title || "Not Found",
+    description: data?.description || "This page could not be found or does not have a description available.",
+    
   };
 }
 
@@ -33,6 +37,7 @@ export default async function Home({
   params: Promise<QueryParams>;
 }) {
   const { language, sub_page, franchise } = await params;
+  console.log('first')
   const { data } = await sanityFetch({
     query: PAGE_QUERY,
     params: {
