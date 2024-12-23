@@ -23,7 +23,7 @@ import { PAGE_QUERY, PAGE_TITLE_QUERY } from '@/sanity/lib/queries';
 }
 
 
-export default async function Home() {
+export default async function Home({params}) {
   
   const { data } = await sanityFetch({
     query: PAGE_QUERY,
@@ -35,7 +35,7 @@ export default async function Home() {
   });
   return (
     <VisualEditWrapper id={data._id} type={data._type} path="page">
-      <Header language='en'/>
+      <Header params={params} />
       <PageContent {...data} key={data._id} />
     </VisualEditWrapper>
   );

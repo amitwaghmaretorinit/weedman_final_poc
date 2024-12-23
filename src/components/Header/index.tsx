@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import "./header.css";
 
 import { ChevronDown, Globe, User } from "lucide-react";
@@ -17,7 +18,8 @@ import { Input } from "@/components/ui/input";
 
 import { i18n } from "../../../languages";
 
-export default async function Header({ language }:{language : string}) {
+export default async function Header({ params }:{params : any}) {
+  const {language}=params;
    return (
     <header className="w-full">
       {/* Top Bar */}
@@ -35,7 +37,7 @@ export default async function Header({ language }:{language : string}) {
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center gap-2">
                 <Globe className="h-5 w-5" />
-                <span>{ language.toUpperCase() || "EN"}</span>
+                <span>{ language?.toUpperCase() || "EN"}</span>
                 <ChevronDown className="h-4 w-4" />
               </DropdownMenuTrigger>
               <DropdownMenuContent>

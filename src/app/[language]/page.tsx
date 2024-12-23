@@ -40,7 +40,7 @@ export default async function Home({
      return (
         <VisualEditWrapper id={data._id} type={data._type} path="page">
 
-            <Header language={language}/>
+            <Header params={params}/>
             <PageContent {...data} key={data._id} />
         </VisualEditWrapper>
     );
