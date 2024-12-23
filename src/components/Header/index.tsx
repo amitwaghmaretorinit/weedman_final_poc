@@ -1,34 +1,24 @@
-"use client";
+import "./header.css";
 
-import { useState, useEffect, useRef } from "react";
 import { ChevronDown, Globe, User } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Input } from "@/components/ui/input";
+
 import { i18n } from "../../../languages";
 
-export default function Header() {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
-        setIsDropdownOpen(false);
-      }
-    }
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
-
-  return (
+export default async function Header({ language }:{language : string}) {
+   return (
     <header className="w-full">
       {/* Top Bar */}
       <div className="border-b">
@@ -40,37 +30,25 @@ export default function Header() {
             className="h-8 w-48 bg-gray-50 mb-2 hidden sm:block"
           />
 
-          <div className="flex items-center gap-4 relative">
-            {/* Language Selector Dropdown */}
-            <div className="relative" ref={dropdownRef}>
-              <Button
-                variant="ghost"
-                className="flex items-center gap-2"
-                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-              >
+          <div className="flex items-center gap-4 ml-10">
+            {/* Language Selector */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center gap-2">
                 <Globe className="h-5 w-5" />
-                <span>EN</span>
+                <span>{ language.toUpperCase() || "EN"}</span>
                 <ChevronDown className="h-4 w-4" />
-              </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuLabel>Languages</DropdownMenuLabel>
+                <DropdownMenuSeparator />
 
-              {/* Dropdown Menu */}
-              {isDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-32 bg-white border border-gray-200 rounded shadow-lg z-10">
-                  <ul>
-                    {i18n.languages.map((i) => {
-                      return (
-                        <Link href={`/${i.id}`} key={i.id}>
-                          <li className="px-4 py-2 cursor-pointer hover:bg-gray-100" >
-                            {i.title}
-                          </li>
-                        </Link>
-                      );
-                    })}
-
-                  </ul>
-                </div>
-              )}
-            </div>
+                {i18n.languages.map((lang) => (
+                  <Link href={`/${lang.id}`} key={lang.id}>
+                    <DropdownMenuItem>{lang.title}</DropdownMenuItem>
+                  </Link>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
 
             {/* Login Link */}
             <Link

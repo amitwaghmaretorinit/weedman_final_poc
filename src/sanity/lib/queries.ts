@@ -10,8 +10,8 @@ export const POST_QUERY =
   title, body, mainImage
 }`);
 
-export const PAGE_QUERY=
-defineQuery(`*[_type == "page_content" && language==$language && page_type->path.current == $sub_page && franchise_type->path.current == $franchise][0]{
+export const PAGE_QUERY =
+  defineQuery(`*[_type == "page_content" && language==$language && page_type->path.current == $sub_page && franchise_type->path.current == $franchise][0]{
   _id,
   title,
   _type,
@@ -36,4 +36,9 @@ defineQuery(`*[_type == "page_content" && language==$language && page_type->path
     alignment,
     language
   }
+}`)
+
+export const PAGE_TITLE_QUERY =
+  defineQuery(`*[_type == "page_content" && language==$language && page_type->path.current == $sub_page && franchise_type->path.current == $franchise][0]{
+  title,
 }`)
