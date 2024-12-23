@@ -1,7 +1,7 @@
 import { QueryParams } from 'next-sanity';
-import { notFound } from 'next/navigation';
 
 import Header from '@/components/Header';
+import NotFound from '@/components/NotFound';
 import PageContent from '@/components/PageContent';
 import VisualEditWrapper from '@/components/VisualEditWrapper';
 import { sanityFetch } from '@/sanity/lib/live';
@@ -17,13 +17,13 @@ export async function generateMetadata({
     query: PAGE_TITLE_QUERY,
     params: {
       language: language || "en",
-      sub_page,
+      sub_page: sub_page || "/",
       franchise,
     },
   });
 
   return {
-    title: data.title,
+    title: data?.title || "Not Found",
   };
 }
 
@@ -37,16 +37,16 @@ export default async function Home({
     query: PAGE_QUERY,
     params: {
       language: language || "en",
-      sub_page,
+      sub_page: sub_page || "/",
       franchise,
     },
   });
   if (!data) {
-    return notFound();
+    return <NotFound params={params} />
   }
   return (
     <VisualEditWrapper id={data._id} type={data._type} path="page">
-      <Header params={params}/>
+      <Header params={params} />
       <PageContent {...data} key={data._id} />
     </VisualEditWrapper>
   );

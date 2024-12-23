@@ -23,19 +23,21 @@ export default defineConfig({
   icon: Icon,
   theme,
   schema:{...schema,
-    templates:[
-      {
-        id: 'page_content-template',
-        title: 'Page by Franchise',
-         schemaType: 'page_content',
-        parameters: [{name: 'franchiseId', type: 'string'}],
-        value: (params:{franchiseId: string}) => {
-           return  ({
-            franchise_type: {_type: 'reference', _ref: params.franchiseId}
-         })
-        }
-      } 
-    ]
+    // templates:[
+    //   {
+    //     id: 'page_content-template',
+    //     title: 'Page by Franchise',
+    //      schemaType: 'page_content',
+    //     parameters: [{name: 'franchiseId', type: 'string'},      { name: 'language', type: 'string' },
+    //     ],
+    //     value: (params:{franchiseId: string}) => {
+    //       console.log({params})
+    //        return  ({
+    //         franchise_type: {_type: 'reference', _ref: params.franchiseId}
+    //      })
+    //     }
+    //   } 
+    // ]
 
   },
   plugins: [

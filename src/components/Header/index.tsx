@@ -19,8 +19,19 @@ import { Input } from "@/components/ui/input";
 import { i18n } from "../../../languages";
 
 export default async function Header({ params }:{params : any}) {
-  const {language}=params;
-   return (
+  const {language,sub_page,franchise}=  await params || {};
+  const getPath=(lang:{id:string})=>{
+    let path=`/${lang.id}`
+    if(franchise){
+      path=`${path}/${franchise}`
+    }
+    if(sub_page){
+      path=`${path}/${sub_page}`    
+    }
+    return path
+  }
+
+    return (
     <header className="w-full">
       {/* Top Bar */}
       <div className="border-b">
@@ -45,7 +56,7 @@ export default async function Header({ params }:{params : any}) {
                 <DropdownMenuSeparator />
 
                 {i18n.languages.map((lang) => (
-                  <Link href={`/${lang.id}`} key={lang.id}>
+                  <Link href={getPath(lang)} key={lang.id}>
                     <DropdownMenuItem>{lang.title}</DropdownMenuItem>
                   </Link>
                 ))}

@@ -6,13 +6,16 @@ export const structure: StructureResolver = (S) => {
   return S.list()
     .title("Content")
     .items([
-      S.listItem().title("Pages").icon(FiAward).child(
-        S.documentList()
-          .title("Pages")
-          .id("page_id")
-          .schemaType("page")
-          .filter('_type == "page"')
-      ),
+      S.listItem()
+        .title("Pages")
+        .icon(FiAward)
+        .child(
+          S.documentList()
+            .title("Pages")
+            .id("page_id")
+            .schemaType("page")
+            .filter('_type == "page"')
+        ),
       S.divider(),
       S.listItem()
         .title("Franchises")
@@ -23,7 +26,6 @@ export const structure: StructureResolver = (S) => {
             .id("franchise_id")
             .schemaType("franchise")
             .filter('_type=="franchise"')
-            
         ),
       S.divider(),
       S.listItem()
@@ -31,23 +33,26 @@ export const structure: StructureResolver = (S) => {
         .icon(FiAward)
         .child(
           S.documentList()
-          .title("Franchises")
-          .id("franchise_id")
-          .schemaType("franchise")
-          .filter('_type == "franchise"')
-          .child((franchiseId) =>
-            S.documentList()
-              .title("Page Content")
-              .id("page_content_id")
-              .schemaType("page_content")
-              .filter(
-                '_type == "page_content" && $franchiseId == franchise_type._ref'
-              )
-              .params({ franchiseId })
-              .initialValueTemplates([
-                S.initialValueTemplateItem("page_content-template", { franchiseId }),
-              ])
-          )
+            .title("Franchises")
+            .id("franchise_id")
+            .schemaType("franchise")
+            .filter('_type == "franchise"')
+            .child((franchiseId) =>
+              S.documentList()
+                .title("Page Content")
+                .id("page_content_id")
+                .schemaType("page_content")
+                .filter(
+                  '_type == "page_content" && $franchiseId == franchise_type._ref'
+                )
+                .params({ franchiseId })
+                // .initialValueTemplates([
+                //   S.initialValueTemplateItem("page_content-template", {
+                //     franchiseId,
+                //   }),
+                // ])
+                
+            )
         ),
       S.divider(),
       S.listItem()
@@ -63,5 +68,3 @@ export const structure: StructureResolver = (S) => {
         ),
     ]);
 };
-
- 

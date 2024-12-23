@@ -1,38 +1,34 @@
-import { defineType } from "sanity";
+import { defineType, Rule } from "sanity";
 import { sections } from "../constants";
 
 export default defineType({
   name: "page_content",
   title: "Page Content",
   type: "document",
-  fields: [
+   fields: [
     {
       name: "title",
       title: "Page Header",
       type: "string",
+      validation:(rule: Rule)=>rule.required()
     },
 
     {
       name: "page_type",
       type: "reference",
       to: [{ type: "page" }],
+      validation:(rule: Rule)=>rule.required()
+
     },
     {
       name: "franchise_type",
       type: "reference",
       to: [{ type: "franchise" }],
-      readOnly: true,
-      options: {
+       options: {
         disableNew: true, 
       },
-      initialValue: (params:{franchiseId: string} ) => {
-         return params?.franchiseId
-          ? {
-              _type: "reference",
-              _ref: params.franchiseId,
-            }
-          : undefined;
-      },
+       
+      validation:(rule: Rule)=>rule.required()
 
     },
     {
@@ -44,6 +40,7 @@ export default defineType({
           to: [...sections.map((i) => ({ type: i.value }))],
         },
       ],
+      validation:(rule: Rule)=>rule.required()
     },
     {
       name: "language",
