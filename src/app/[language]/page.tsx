@@ -19,6 +19,7 @@ export default async function Home({
     params: {
       language: language || "en",
       path,
+      franchise:'/ca'
     },
   });
   return (
