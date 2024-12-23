@@ -20,6 +20,8 @@ export const PAGE_QUERY =
   "sections": sections[]->{
     _id,
     _type,
+    video,
+    description,
     title,
      sections,
     subtitle,
