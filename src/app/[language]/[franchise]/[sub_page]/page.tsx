@@ -13,14 +13,12 @@ export default async function Home({
   params: Promise<QueryParams>;
 }) {
   const { language, sub_page, franchise} = await params;
-  const path = sub_page ? `/${sub_page}` : "/";
-  const franchisePath=`/${franchise}`
-  const { data } = await sanityFetch({
+   const { data } = await sanityFetch({
     query: PAGE_QUERY,
     params: {
       language: language || "en",
-      path,
-      franchise:franchisePath
+      sub_page,
+      franchise
     },
   });
   if(!data){
