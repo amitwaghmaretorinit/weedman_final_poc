@@ -14,7 +14,6 @@ export default function HomePageHeroSection(props: any) {
 
   return (
     <section className="relative min-h-[600px] w-full">
-      {/* Background Image with Overlay */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
@@ -27,21 +26,17 @@ export default function HomePageHeroSection(props: any) {
         <div className="absolute inset-0 bg-black/20" />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 mx-auto max-w-6xl px-4 py-20">
-        <div className="max-w-2xl space-y-6 mt-12 md:mt-24">
-          {/* Heading */}
+      <div className="relative z-10 mx-auto max-w-6xl px-4 py-10 sm:py-20">
+        <div className="max-w-2xl space-y-6 mt-12 sm:mt-24">
           <h1 className="font-bold tracking-tight text-white">
-            <span className="block text-4xl sm:text-5xl md:text-6xl">{title}</span>
+            <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl">{title}</span>
           </h1>
 
-          {/* Subtext */}
-          <p className="text-sm sm:text-base md:text-lg text-white/90">
+          <p className="text-base sm:text-lg md:text-xl text-white/90">
             {subtitle}
           </p>
 
-          {/* Form */}
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2 sm:gap-0">
+          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">
             <div className="relative flex-1">
               <MapPin className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-500" />
               <Input
@@ -50,7 +45,7 @@ export default function HomePageHeroSection(props: any) {
                 className="w-full pl-10 rounded-r-none bg-white-50"
               />
             </div>
-            <Button type="submit" className="mt-2 sm:mt-0 sm:rounded-l-none">
+            <Button type="submit" className="sm:rounded-l-none">
               GET STARTED
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
