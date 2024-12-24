@@ -6,6 +6,7 @@ import PageContent from '@/components/PageContent';
 import VisualEditWrapper from '@/components/VisualEditWrapper';
 import { sanityFetch } from '@/sanity/lib/live';
 import { PAGE_QUERY, PAGE_TITLE_QUERY } from '@/sanity/lib/queries';
+import Footer from '@/components/Footer';
 
 export const revalidate = 10; // Revalidate this page every 10 seconds
 
@@ -53,6 +54,7 @@ export default async function Home({
     <VisualEditWrapper id={data._id} type={data._type} path="page">
       <Header params={params} />
       <PageContent {...data} key={data._id} />
+      <Footer/>
     </VisualEditWrapper>
   );
 }
