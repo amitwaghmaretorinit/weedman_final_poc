@@ -112,7 +112,7 @@ export default async function Header({ params }:{params : any}) {
           </nav>
 
           {/* CTA Button */}
-          <Button className="hidden sm:block bg-orange-400 hover:bg-orange-500 px-4 md:px-6 font-semibold">
+          <Button className="hidden sm:block px-4 md:px-6">
             GET STARTED
           </Button>
         </div>

@@ -11,6 +11,7 @@ import servicesPageHero from "./servicesPageHero";
 import franchiseType from "./franchiseType";
 import weedControlService from "./weedControlService";
 import servicesWhyDoINeedThis from "./servicesWhyDoINeedThis";
+import servicesGuarantee from "./servicesGuarantee";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -24,6 +25,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     authorType,
     franchiseType,
     weedControlService,
-    servicesWhyDoINeedThis
+    servicesWhyDoINeedThis,
+    servicesGuarantee
   ],
 };

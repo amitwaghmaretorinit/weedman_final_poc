@@ -31,6 +31,8 @@ export const PAGE_QUERY =
         url
       }
     },
+    buttonLink,
+    buttonText,
     ctaButtons[]{
       label,
       url,

@@ -45,7 +45,7 @@ export default function HomePageHeroSection(props: any) {
                 className="w-full pl-10 rounded-r-none bg-white-50"
               />
             </div>
-            <Button type="submit" className="sm:rounded-l-none">
+            <Button type="submit"  >
               GET STARTED
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
