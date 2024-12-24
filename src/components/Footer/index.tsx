@@ -1,16 +1,17 @@
 import React from "react";
-import { FaTwitter, FaYoutube, FaLinkedin } from "react-icons/fa";
+import { FaXTwitter, FaYoutube, FaLinkedin } from "react-icons/fa6";
 
 export default function Footer() {
   return (
     <footer className="bg-green-900 text-white py-10">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-6 gap-8">
+        {/* Grid Layout */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
           {/* Logo and Social Links */}
           <div className="col-span-1">
             <h1 className="text-xl font-bold">Weed Man</h1>
             <div className="flex space-x-4 mt-4">
-              <FaTwitter className="w-6 h-6 hover:text-green-400" />
+              <FaXTwitter className="w-6 h-6 hover:text-green-400" />
               <FaYoutube className="w-6 h-6 hover:text-green-400" />
               <FaLinkedin className="w-6 h-6 hover:text-green-400" />
             </div>
